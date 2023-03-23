@@ -9,10 +9,13 @@ class Header extends Component {
 
   render() {
     return(
-      <div>
-        <h1>Bea & Travis's Rate Movies</h1>
+      <header className="header-bar">
+        <h1>Bea &amp; Travis's Movie Cinema</h1>
         <input type="text" placeholder="Search" name="search" />
-      </div>
+        <button className='search-button'>Search</button>
+      </header>
+        
+     
     
     )
   }
