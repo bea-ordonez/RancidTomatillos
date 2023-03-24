@@ -15,7 +15,7 @@ class MovieDetails extends Component {
     const movieCards = this.state.movies.map(movie => {
       return(
           <Movie
-            poster_path={movie.poster_path}
+          poster_path={movie.poster_path}
           />
         )
     })
