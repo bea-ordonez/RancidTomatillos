@@ -1,0 +1,8 @@
+.single-movie-card > img {
+    width: 300px;
+    height:300px;
+}
+
+.card-flexbox {
+    display:flex;
+}
