@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import Header from "../Header/Header.js"
 import MovieDetails from "../MovieDetails/MovieDetails.js"
 
 
@@ -47,8 +46,8 @@ class App extends Component {
   render() {
     return (
         <main>
-           <Header />
-          <MovieDetails />
+          <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1>
+          <MovieDetails movies={this.state.movies} />
         </main>
          
     );

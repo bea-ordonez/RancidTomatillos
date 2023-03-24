@@ -5,19 +5,17 @@ import Movie from "../Movie/Movie.js"
 class MovieDetails extends Component {
   constructor({movies}) {
     super()
-    this.state = {}
+    this.state = {
+      movies
+    }
   }
 
   render() {
-    const movieCards = movies.map(movie => {
+    console.log(this.state.movies)
+    const movieCards = this.state.movies.map(movie => {
       return(
-        <Movie 
-          title={movie.title}
+        <Movie
           poster_path={movie.poster_path}
-          backdrop_path={movie.backdrop_path}
-          average_rating={movie.average_rating}
-          release_date={movie.release_date}
-          id={movie.id}
         />
         )
     })
