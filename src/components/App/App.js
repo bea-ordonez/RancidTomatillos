@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "../Header/Header.js"
 import MovieDetails from "../MovieDetails/MovieDetails.js"
 
+
 class App extends Component {
   constructor() {
     super();
@@ -45,8 +46,11 @@ class App extends Component {
 
   render() {
     return (
-          <Header />
+        <main>
+           <Header />
           <MovieDetails />
+        </main>
+         
     );
   }
 }
