@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import './MovieDetails.css'
+import './MovieContainer.css'
 import Movie from "../Movie/Movie.js"
 
-class MovieDetails extends Component {
+class MovieContainer extends Component {
   constructor({movies}) {
     super()
     this.state = {
@@ -11,11 +11,11 @@ class MovieDetails extends Component {
   }
 
   render() {
-    console.log(this.state.movies)
     const movieCards = this.state.movies.map(movie => {
       return(
           <Movie
           poster_path={movie.poster_path}
+          id={movie.id}
           />
         )
     })
@@ -23,4 +23,4 @@ class MovieDetails extends Component {
   }
 }
 
-export default MovieDetails;
+export default MovieContainer;
