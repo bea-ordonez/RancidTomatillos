@@ -1,6 +1,6 @@
-import React from 'react'
-import './MovieContainer.css'
-import Movie from "../Movie/Movie.js"
+import React from 'react';
+import './MovieContainer.css';
+import Movie from '../Movie/Movie.js';
 
 
 const MovieContainer = ({ movies }) => {
@@ -10,8 +10,8 @@ const MovieContainer = ({ movies }) => {
               poster_path={movie.poster_path}
               id={movie.id}
               />
-            )
-        })
+            );
+        });
         return <div className='movie-cards'>{movieCards}</div>
       }
 

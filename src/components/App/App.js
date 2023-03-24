@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import "./App.css";
-import MovieContainer from "../MovieContainer/MovieContainer.js"
-import SingleMovie from "../SingleMovie/SingleMovie.js"
-import {movieData, singleMovieInfo} from "../Movie/MovieData.js"
+import React, { Component } from 'react';
+import './App.css';
+import MovieContainer from '../MovieContainer/MovieContainer.js';
+import SingleMovie from '../SingleMovie/SingleMovie.js';
+import {movieData, singleMovieInfo} from '../Movie/MovieData.js';
 
 class App extends Component {
   constructor() {
@@ -13,8 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(movieData.movies)
-    this.setState( {movies: movieData.movies })
+    this.setState( {movies: movieData.movies });
   }
 
   render() {
@@ -24,7 +23,6 @@ class App extends Component {
           {this.state.movies.length ? <MovieContainer movies={this.state.movies} /> : <p>Loadingggg.....</p>}
           <SingleMovie />
         </main>
-         
     );
   }
 }
