@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './SingleMovie.css';
+import PropTypes from "prop-types";
 
 class SingleMovie extends Component {
     constructor() {
@@ -27,6 +28,10 @@ class SingleMovie extends Component {
         );
     };
 }
-//style={{display: "none" }} 
+
 
 export default SingleMovie;
+
+SingleMovie.propTypes = {
+  showAllMovies: PropTypes.func.isRequired
+}

@@ -3,6 +3,7 @@ import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer.js';
 import SingleMovie from '../SingleMovie/SingleMovie.js';
 import fetchPromises from '../Api';
+import PropTypes from "prop-types";
 
 class App extends Component {
   constructor() {
@@ -46,3 +47,7 @@ class App extends Component {
 }
 
 export default App;
+
+// App.PropTypes = {
+
+// }

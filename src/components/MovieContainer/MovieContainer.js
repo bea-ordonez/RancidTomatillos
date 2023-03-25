@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieContainer.css';
 import Movie from '../Movie/Movie.js';
-
+import PropTypes from "prop-types";
 
 const MovieContainer = ({ movies, showSingleMovie }) => {
   const movieCards = movies.map(movie => {
@@ -18,3 +18,8 @@ const MovieContainer = ({ movies, showSingleMovie }) => {
       }
 
 export default MovieContainer;
+
+MovieContainer.propTypes = {
+  movies: PropTypes.array.isRequired,
+  showSingleMovie: PropTypes.func.isRequired
+}
