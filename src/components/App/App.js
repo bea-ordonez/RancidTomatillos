@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import "./App.css";
-import MovieContainer from "../MovieContainer/MovieContainer.js"
-// import movieData from "../Movie/MovieData.js"
-import {movieData, singleMovieInfo} from "../Movie/MovieData.js"
+import React, { Component } from 'react';
+import './App.css';
+import MovieContainer from '../MovieContainer/MovieContainer.js';
+import SingleMovie from '../SingleMovie/SingleMovie.js';
+import {movieData, singleMovieInfo} from '../Movie/MovieData.js';
 
 class App extends Component {
   constructor() {
@@ -12,18 +12,22 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log(movieData.movies)
-    this.setState( {movies: movieData.movies })
+  componentDidMount = () => {
+    this.setState( {movies: movieData.movies });
+  }
+
+  showSingleMovie = (id) => {
+    console.log('suuup')
+    console.log(id)
   }
 
   render() {
     return (
         <main>
           <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1>
-          {this.state.movies.length ? <MovieContainer movies={this.state.movies} /> : <p>Loadingggg.....</p>}
+          {this.state.movies.length ? <MovieContainer movies={this.state.movies} showSingleMovie={this.showSingleMovie} /> : <p>Loadingggg.....</p>}
+          <SingleMovie />
         </main>
-         
     );
   }
 }
