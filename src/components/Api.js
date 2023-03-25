@@ -1,37 +1,14 @@
-const fetchAllMovies = () => {
-    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`).then(
+const fetchPromises = (path) => {
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/${path}`).then(
         (response) => {
           if (response.ok) {
             return response.json()
           } else {
-            throw new Error("Error. No such path.")
+            throw new Error("Error receiving data.", response.status)
           }
         }
     )
 }
 
-const fetchMovieTrailer = (id) => {
-    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/:movie_${id}/videos`).then(
-        (response) => {
-          if (response.ok) {
-            return response.json()
-          } else {
-            throw new Error("Error. No such path.")
-          }
-        }
-    )
-}
+export default fetchPromises;
 
-const fetchSingleMovie= (id) => {
-    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/:movie_${id}`).then(
-        (response) => {
-          if (response.ok) {
-            return response.json()
-          } else {
-            throw new Error("Error. No such path.")
-          }
-        }
-    )
-}
-
-export {fetchAllMovies, fetchMovieTrailer, fetchSingleMovie };
