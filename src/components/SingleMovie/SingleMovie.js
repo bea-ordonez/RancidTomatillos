@@ -10,19 +10,20 @@ class SingleMovie extends Component {
     }
 
     render() {
-       const foundMov = this.props.singleMovie
+       const singleMov = this.props.singleMovie
 
         return (
           <div className="single-movie">  
             <button onClick={() => this.props.showAllMovies()}>Home Page</button>
-            <p>{foundMov.title}</p>
-            <img className="background-image" id={foundMov.id} key={foundMov.id} src={foundMov.backdrop_path} alt={`${foundMov.title} movie poster`} />
-            <p>Release Date: {foundMov.release_date}</p>
-            <p>Summary: {foundMov.overview}</p>
-            <p>Rating: {foundMov.average_rating} TOMATOES</p>
-            <p>Category: {foundMov.genres}</p>
-            <p>Runtime: {foundMov.runtime}</p>
-            <p>{foundMov.tagline}</p>
+            <p>{singleMov.title}</p>
+            <p>{singleMov.tagline}</p>
+            <img className="background-image" id={singleMov.id} key={singleMov.id} src={singleMov.backdrop_path} alt={`${singleMov.title} movie poster`} />
+            <p>Release Date: {singleMov.release_date}</p>
+            <p>Synopsis: {singleMov.overview}</p>
+            <p>Rating: {singleMov.average_rating} 🍅 </p>
+            <p>Genre: {singleMov.genres}</p>
+            <p>Runtime: {singleMov.runtime}</p>
+            
             
           </div>
         );
