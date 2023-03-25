@@ -21,7 +21,7 @@ class SingleMovie extends Component {
             <p>Synopsis: {singleMov.overview}</p>
             <p>Rating: {singleMov.average_rating} 🍅 </p>
             <p>Genre: {singleMov.genres}</p>
-            <p>Runtime: {singleMov.runtime}</p>
+            <p>Runtime: {singleMov.runtime} minutes</p>
             
             
           </div>
@@ -33,5 +33,6 @@ class SingleMovie extends Component {
 export default SingleMovie;
 
 SingleMovie.propTypes = {
-  showAllMovies: PropTypes.func.isRequired
+  showAllMovies: PropTypes.func.isRequired,
+  singleMovie: PropTypes.object.isRequired
 }

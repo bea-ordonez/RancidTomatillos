@@ -48,6 +48,6 @@ class App extends Component {
 
 export default App;
 
-// App.PropTypes = {
-
+// App.propTypes = {
+// movies: PropTypes.array.isRequired
 // }
