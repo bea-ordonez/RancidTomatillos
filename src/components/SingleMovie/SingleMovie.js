@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import './SingleMovie.css';
-import {movieData, singleMovieInfo} from '../Movie/MovieData.js';
-
 
 class SingleMovie extends Component {
     constructor() {

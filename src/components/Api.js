@@ -4,7 +4,7 @@ const fetchPromises = (path) => {
           if (response.ok) {
             return response.json()
           } else {
-            throw new Error("Error. No such path.")
+            throw new Error("Error receiving data.", response.status)
           }
         }
     )

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer.js';
 import SingleMovie from '../SingleMovie/SingleMovie.js';
-import {movieData, singleMovieInfo} from '../Movie/MovieData.js';
 import fetchPromises from '../Api';
 
 class App extends Component {
@@ -11,19 +10,22 @@ class App extends Component {
     this.state = {
       movies: [],
       singleMovie: {},
-      singleMovieChosen: false
+      singleMovieChosen: false,
+      error: ""
     };
   }
 
   componentDidMount = () => {
     fetchPromises("movies")
     .then((data) =>  this.setState({movies: data.movies}))
-    .catch(() => console.log("Error, cannot fulfill request." ))
+    .catch((error) => this.setState( {error: "Something went wrong wrong"}))
+    
   }
 
   showSingleMovie = (id) => {
     fetchPromises(`/movies/${id}`)
     .then((data) => this.setState({singleMovie: data.movie, singleMovieChosen: true}))
+    .catch((error) => this.setState( {error: "Something went wrong wrong"}))
   }
 
   showAllMovies = () => {
@@ -34,6 +36,8 @@ class App extends Component {
     return (
         <main>
           <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1>
+          {this.state.error && <h1 className='error-message'>Sorry, something went wrong! Please try again</h1>}
+          {!this.state.movies.length &&  <h1>Loading...</h1>}
           {this.state.singleMovieChosen && <SingleMovie singleMovie={this.state.singleMovie} showAllMovies={this.showAllMovies} />}
           {!this.state.singleMovieChosen &&  <MovieContainer movies={this.state.movies} showSingleMovie={this.showSingleMovie} /> } 
         </main>
