@@ -12,15 +12,20 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.setState( {movies: movieData.movies });
+  }
+
+  showSingleMovie = (id) => {
+    console.log('suuup')
+    console.log(id)
   }
 
   render() {
     return (
         <main>
           <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1>
-          {this.state.movies.length ? <MovieContainer movies={this.state.movies} /> : <p>Loadingggg.....</p>}
+          {this.state.movies.length ? <MovieContainer movies={this.state.movies} showSingleMovie={this.showSingleMovie} /> : <p>Loadingggg.....</p>}
           <SingleMovie />
         </main>
     );

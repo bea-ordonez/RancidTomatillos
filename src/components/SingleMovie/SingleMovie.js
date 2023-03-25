@@ -9,9 +9,8 @@ class SingleMovie extends Component {
     }
 
     render() {
-        console.log('singleMovie',this.state.singleMovie)
         return (
-          <div className="single-movie">  
+          <div style={{display: "none" }} className="single-movie">  
             <button>Home Page</button>
             <p>{this.state.singleMovie.title}</p>
             <img className="background-image" id={this.state.singleMovie.id} key={this.state.singleMovie.id} src={this.state.singleMovie.backdrop_path} alt={`${this.state.singleMovie.title} movie poster`} />
@@ -25,7 +24,5 @@ class SingleMovie extends Component {
         );
     };
 }
-
-
 
 export default SingleMovie;
