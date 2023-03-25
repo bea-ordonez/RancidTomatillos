@@ -3,6 +3,7 @@ import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer.js';
 import SingleMovie from '../SingleMovie/SingleMovie.js';
 import {movieData, singleMovieInfo} from '../Movie/MovieData.js';
+import { fetchAllMovies } from '../Api';
 
 class App extends Component {
   constructor() {
@@ -15,7 +16,10 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.setState( {movies: movieData.movies });
+    // this.setState( {movies: movieData.movies });
+    fetchAllMovies()
+    .then((data) =>  this.setState({movies: data.movies}))
+    .catch(() => console.log("Error, cannot fulfill request." ))
   }
 
   showSingleMovie = (id) => {
