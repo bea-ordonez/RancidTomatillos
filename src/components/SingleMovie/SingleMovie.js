@@ -23,6 +23,7 @@ class SingleMovie extends Component {
             <p>Category: {foundMov.genres}</p>
             <p>Runtime: {foundMov.runtime}</p>
             <p>{foundMov.tagline}</p>
+            
           </div>
         );
     };

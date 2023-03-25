@@ -3,7 +3,7 @@ import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer.js';
 import SingleMovie from '../SingleMovie/SingleMovie.js';
 import {movieData, singleMovieInfo} from '../Movie/MovieData.js';
-import {fetchAllMovies, fetchMovieTrailer, fetchSingleMovie } from '../Api';
+import fetchPromises from '../Api';
 
 class App extends Component {
   constructor() {
@@ -16,16 +16,13 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    // this.setState( {movies: movieData.movies });
-    fetchAllMovies()
+    fetchPromises("movies")
     .then((data) =>  this.setState({movies: data.movies}))
     .catch(() => console.log("Error, cannot fulfill request." ))
   }
 
   showSingleMovie = (id) => {
-    // const foundMovie = this.state.movies.find(movie => movie.id == id);
-    // this.setState( {singleMovie: foundMovie, singleMovieChosen: true});
-    fetchSingleMovie(id)
+    fetchPromises(`/movies/${id}`)
     .then((data) => this.setState({singleMovie: data.movie, singleMovieChosen: true}))
   }
 
