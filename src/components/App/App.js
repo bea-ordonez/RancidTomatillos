@@ -9,6 +9,8 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
+      singleMovie: {},
+      singleMovieChosen: false
     };
   }
 
@@ -17,16 +19,22 @@ class App extends Component {
   }
 
   showSingleMovie = (id) => {
-    console.log('suuup')
     console.log(id)
+    const foundMovie = this.state.movies.find(movie => movie.id == id)
+    this.setState( {singleMovie: foundMovie, singleMovieChosen: true})
+    console.log(this.state.singleMovie)
+  }
+
+  showAllMovies = () => {
+    this.setState({ singleMovie: {},  singleMovieChosen: false })
   }
 
   render() {
     return (
         <main>
           <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1>
-          {this.state.movies.length ? <MovieContainer movies={this.state.movies} showSingleMovie={this.showSingleMovie} /> : <p>Loadingggg.....</p>}
-          <SingleMovie />
+          {this.state.singleMovieChosen && <SingleMovie singleMovie={this.state.singleMovie} showAllMovies={this.showAllMovies} />}
+          {!this.state.singleMovieChosen &&  <MovieContainer movies={this.state.movies} showSingleMovie={this.showSingleMovie} /> } 
         </main>
     );
   }
