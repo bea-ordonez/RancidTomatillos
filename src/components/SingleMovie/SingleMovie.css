@@ -19,3 +19,18 @@
 .movie-details {
     text-align: center;
 }
+
+.single-movie-button {
+    margin-left: 20px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.single-movie-button:hover {
+        scale: 1.1;
+        background-color: lightgray;
+        border-radius: 8px;
+      
+}
