@@ -8,7 +8,14 @@
 
 .single-movie {
     background-color: black;
+    background-size: cover;
     font-size: 2vh;
     color: white;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    height: 95vh;
+    text-shadow: #000000 1px 0 10px;
+}
+
+.movie-details {
+    text-align: center;
 }
