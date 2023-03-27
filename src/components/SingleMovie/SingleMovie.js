@@ -6,7 +6,7 @@ const SingleMovie = ({singleMovie, showAllMovies}) => {
   
   return (
     <div className="single-movie" style={{backgroundImage:`url("${singleMovie.backdrop_path}")`}}>  
-      <button onClick={() => showAllMovies()}>Back To Home</button>
+      <button className="single-movie-button" onClick={() => showAllMovies()}>Back To Home</button>
       <div className="movie-details">
         <h1>{singleMovie.title}</h1>
         <p>{singleMovie.tagline}</p>
