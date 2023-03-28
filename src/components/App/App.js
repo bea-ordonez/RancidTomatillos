@@ -20,18 +20,17 @@ class App extends Component {
   componentDidMount = () => {
     fetchPromises("movies")
     .then((data) =>  this.setState({movies: data.movies}))
-    .catch((error) => this.setState( {error: "Something went wrong wrong"}))
-    
+    .catch((error) => this.setState( {error: "Something went wrong wrong"}));
   }
 
   showSingleMovie = (id) => {
     fetchPromises(`/movies/${id}`)
     .then((data) => this.setState({singleMovie: data.movie, singleMovieChosen: true}))
-    .catch((error) => this.setState( {error: "Something went wrong wrong"}))
+    .catch((error) => this.setState( {error: "Something went wrong wrong"}));
 
     fetchPromises(`/movies/${id}/videos`)
     .then((data) => this.setState({singleMovieTrailer: data.videos}))
-    .catch((error) => this.setState( {error: "Something went wrong wrong"}))
+    .catch((error) => this.setState( {error: "Something went wrong wrong"}));
   }
 
   
@@ -53,6 +52,10 @@ class App extends Component {
 
 export default App;
 
-// App.propTypes = {
-// movies: PropTypes.array.isRequired
-// }
+App.propTypes = {
+  showAllMovies: PropTypes.func,
+  showSingleMovie: PropTypes.func,
+  singleMovie: PropTypes.object,
+  movies: PropTypes.array,
+  trailer: PropTypes.arrayOf()
+}
