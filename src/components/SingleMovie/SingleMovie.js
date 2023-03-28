@@ -2,14 +2,13 @@ import React from "react";
 import "./SingleMovie.css";
 import PropTypes from "prop-types";
 
-const SingleMovie = ({ singleMovie, showAllMovies, trailer }) => {
-  console.log(trailer);
-  const trailerMovie = trailer.find(
+const SingleMovie = ({ singleMovie, showAllMovies, videos }) => {
+  const trailerMovie = videos.find(
     (video) => video.type === "Trailer" && video.site === "YouTube"
   );
 
   let movKey;
-  !trailerMovie == [] ? (movKey = trailerMovie.key) : (movKey = false);
+  trailerMovie == [] ? (movKey = false) : (movKey = trailerMovie.key);
 
   return (
     <div
@@ -46,5 +45,6 @@ export default SingleMovie;
 
 SingleMovie.propTypes = {
   showAllMovies: PropTypes.func.isRequired,
-  singleMovie: PropTypes.object.isRequired
+  singleMovie: PropTypes.object.isRequired,
+  video: PropTypes.arrayOf()
 }
