@@ -3,6 +3,13 @@ import './SingleMovie.css';
 import PropTypes from "prop-types";
 
 const SingleMovie = ({singleMovie, showAllMovies, trailer}) => {
+ 
+  const trailerMovie = trailer.find((video) => video.type === "Trailer" && video.site === "YouTube")
+  
+  let movKey 
+  !trailerMovie == [] ? movKey = trailerMovie.key : movKey = false
+  
+
   return (
     <div className="single-movie" style={{backgroundImage:`url("${singleMovie.backdrop_path}")`}}>  
       <button className="single-movie-button" onClick={() => showAllMovies()}>Back To Home</button>
@@ -14,7 +21,9 @@ const SingleMovie = ({singleMovie, showAllMovies, trailer}) => {
         <p>Rating: {singleMovie.average_rating} 🍅 </p>
         <p>Genre: {singleMovie.genres}</p>
         <p>Runtime: {singleMovie.runtime} minutes</p>
-        <video src={trailer}></video>
+        {movKey && <iframe src={`https://www.youtube.com/embed/${movKey}`}></iframe>} 
+        {movKey === false && <div>"Sorry no trailer available"</div>}
+        
       </div>
     </div>
   )
@@ -22,8 +31,8 @@ const SingleMovie = ({singleMovie, showAllMovies, trailer}) => {
 
 export default SingleMovie;
 
-SingleMovie.propTypes = {
-  showAllMovies: PropTypes.func.isRequired,
-  singleMovie: PropTypes.object.isRequired
-}
+// SingleMovie.propTypes = {
+//   showAllMovies: PropTypes.func.isRequired,
+//   singleMovie: PropTypes.object.isRequired
+// }
 
