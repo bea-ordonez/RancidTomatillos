@@ -13,6 +13,7 @@ const Movie = ({title, poster_path, id, showSingleMovie}) => {
 export default Movie;
 
 Movie.propTypes = {
+  title: PropTypes.string,
   id: PropTypes.number.isRequired,
   poster_path: PropTypes.string.isRequired,
   showSingleMovie: PropTypes.func.isRequired
