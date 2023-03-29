@@ -22,7 +22,7 @@ const SingleMovie = ({ singleMovie, showAllMovies, videos }) => {
       </button>
       </Link>
       <Link to="/">
-      <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1>
+      <h1 className="single-header-title">Bea &amp; Travis's Movie Cinema</h1>
       </Link>
       <div className="movie-details">
         <h1>Title: {singleMovie.title}</h1>
@@ -37,8 +37,8 @@ const SingleMovie = ({ singleMovie, showAllMovies, videos }) => {
             src={`https://www.youtube.com/embed/${movieKey}`}
             allowFullScreen
             title="video"
-            width={550}
-            height={300}
+            width={500}
+            height={250}
           ></iframe>
         )}
         {movieKey === false && <h1>"Sorry no trailer available"</h1>}

@@ -37,6 +37,7 @@
       
 }
 
-.header-title {
+.single-header-title {
     cursor: pointer;
+    text-align: center;
 }
