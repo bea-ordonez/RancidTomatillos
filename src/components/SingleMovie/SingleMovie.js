@@ -4,9 +4,6 @@ import PropTypes from "prop-types";
 import {Link}  from "react-router-dom";
 
 const SingleMovie = ({ singleMovie, showAllMovies, videos }) => {
-  console.log(videos)
-  
-
   let movieKey 
   if(videos.length) {
     const trailerMovie = videos.find((video) => video.type === "Trailer" && video.site === "YouTube")
