@@ -4,6 +4,7 @@ import MovieContainer from '../MovieContainer/MovieContainer.js';
 import SingleMovie from '../SingleMovie/SingleMovie.js';
 import fetchPromises from '../Api';
 import PropTypes from "prop-types";
+import { Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -40,12 +41,18 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
         <main>
           {!this.state.movies.length ?  <h1 className='loading-message'>Loading...</h1> : <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1> }
           {this.state.error && <h1 className='error-message'>Sorry, something went wrong! Please try again</h1>}
-          {this.state.singleMovieChosen && <SingleMovie singleMovie={this.state.singleMovie} videos={this.state.singleMovieTrailer} showAllMovies={this.showAllMovies} />}
+        <Switch>
+          <Route path="/">
+            {this.state.singleMovieChosen && <SingleMovie singleMovie={this.state.singleMovie} videos={this.state.singleMovieTrailer} showAllMovies={this.showAllMovies} />}
+          </Route>
+        </Switch>
           {!this.state.singleMovieChosen &&  <MovieContainer movies={this.state.movies} showSingleMovie={this.showSingleMovie} /> } 
         </main>
+      </Router>   
     );
   }
 }
