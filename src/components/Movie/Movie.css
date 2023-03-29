@@ -12,4 +12,5 @@
 .single-movie-card:hover {
 scale: 1.1;
 border-radius: 1.5em;
+transition: all ease-in-out .3s;
 }

@@ -13,7 +13,6 @@ class App extends Component {
       movies: [],
       singleMovie: {},
       singleMovieTrailer: [],
-      singleMovieChosen: false,
       error: ""
     };
   }
@@ -36,7 +35,7 @@ class App extends Component {
 
   
   showAllMovies = () => {
-    this.setState({ singleMovie: {},  singleMovieChosen: false, singleMovieTrailer: []  });
+    this.setState({ singleMovie: {}, singleMovieTrailer: []  });
   }
 
   render() {
@@ -46,11 +45,12 @@ class App extends Component {
         <Switch>
           <Route exact path={`/${this.state.singleMovie.id}`}>
            <SingleMovie singleMovie={this.state.singleMovie} videos={this.state.singleMovieTrailer} showAllMovies={this.showAllMovies} />
+           {this.state.error && <h1 className='error-message'>Sorry, something went wrong! Please try again</h1>}
           </Route>
           <Route exact path={"/"}>
             {!this.state.movies.length ?  <h1 className='loading-message'>Loading...</h1> : <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1> }
            <MovieContainer movies={this.state.movies} showSingleMovie={this.showSingleMovie} /> 
-           {/* {this.state.error && <h1 className='error-message'>Sorry, something went wrong! Please try again</h1>} */}
+           {this.state.error && <h1 className='error-message'>Sorry, something went wrong! Please try again</h1>}
           </Route>
           </Switch>
         </main>
