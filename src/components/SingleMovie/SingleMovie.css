@@ -36,3 +36,7 @@
         border-radius: 8px;
       
 }
+
+.header-title {
+    cursor: pointer;
+}
