@@ -4,12 +4,17 @@ import PropTypes from "prop-types";
 import {Link}  from "react-router-dom";
 
 const SingleMovie = ({ singleMovie, showAllMovies, videos }) => {
-  const trailerMovie = videos.find(
-    (video) => video.type === "Trailer" && video.site === "YouTube"
-  );
+  console.log(videos)
+  
 
-  let movieKey;
-  trailerMovie == [] ? (movieKey = false) : (movieKey = trailerMovie.key);
+  let movieKey 
+  if(videos.length) {
+    const trailerMovie = videos.find((video) => video.type === "Trailer" && video.site === "YouTube")
+    movieKey = trailerMovie.key
+  } else {
+    movieKey = false
+  }
+
 
   return (
     <div
@@ -52,5 +57,9 @@ export default SingleMovie;
 SingleMovie.propTypes = {
   showAllMovies: PropTypes.func.isRequired,
   singleMovie: PropTypes.object.isRequired,
-  video: PropTypes.arrayOf()
+  videos: PropTypes.arrayOf()
+}
+
+SingleMovie.defaultProps = {
+  videos: []
 }
