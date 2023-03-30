@@ -9,6 +9,7 @@ describe("A user should see an error page", () => {
 
   it('User should see the "Page Not Found" message', () => {
     cy.get("h1").should("be.visible");
+    cy.get('h1').should('contain', "Page Not Found")
   });
 
   it('User should be redirected back to the home movie page when clicking the go home button', () => {
