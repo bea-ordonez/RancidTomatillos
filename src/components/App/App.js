@@ -57,7 +57,6 @@ class App extends Component {
           </Route>
           </Switch>
         </main>
-       
     );
   }
 }
