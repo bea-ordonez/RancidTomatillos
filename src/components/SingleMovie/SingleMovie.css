@@ -36,3 +36,8 @@
         border-radius: 8px;
       
 }
+
+.single-header-title {
+    cursor: pointer;
+    text-align: center;
+}
