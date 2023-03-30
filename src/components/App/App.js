@@ -26,8 +26,6 @@ class App extends Component {
   }
 
   showSingleMovie = (id) => {
-    // this.setState({loading: true})
-
     fetchPromises(`/movies/${id}`)
     .then((data) => this.setState({singleMovie: data.movie}))
     .catch((error) => this.setState( {error: "Something went wrong wrong"}))
@@ -35,11 +33,8 @@ class App extends Component {
     fetchPromises(`/movies/${id}/videos`)
     .then((data) => this.setState({singleMovieTrailer: data.videos, loading: false}))
     .catch((error) => this.setState( {error: "Something went wrong wrong"}))
-
-    
   }
 
-  
   showAllMovies = () => {
     this.setState({ singleMovie: {}, singleMovieTrailer: []  });
   }
