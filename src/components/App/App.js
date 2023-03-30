@@ -14,7 +14,8 @@ class App extends Component {
       movies: [],
       singleMovie: {},
       singleMovieTrailer: [],
-      error: ""
+      error: "",
+      loading: true
     };
   }
 
@@ -25,13 +26,17 @@ class App extends Component {
   }
 
   showSingleMovie = (id) => {
+    // this.setState({loading: true})
+
     fetchPromises(`/movies/${id}`)
     .then((data) => this.setState({singleMovie: data.movie}))
     .catch((error) => this.setState( {error: "Something went wrong wrong"}))
 
     fetchPromises(`/movies/${id}/videos`)
-    .then((data) => this.setState({singleMovieTrailer: data.videos}))
+    .then((data) => this.setState({singleMovieTrailer: data.videos, loading: false}))
     .catch((error) => this.setState( {error: "Something went wrong wrong"}))
+
+    
   }
 
   
@@ -41,10 +46,10 @@ class App extends Component {
 
   render() {
     return (
-        <main>
+      <main>
         <Switch>
-          <Route exact path={`/${this.state.singleMovie.id}`}>
-            <SingleMovie singleMovie={this.state.singleMovie} videos={this.state.singleMovieTrailer} showAllMovies={this.showAllMovies} />
+          <Route path={`/${this.state.singleMovie.id}`}>
+            {this.state.loading ?  <h1 className='loading-message'>Loading...</h1> : <SingleMovie singleMovie={this.state.singleMovie} videos={this.state.singleMovieTrailer} showAllMovies={this.showAllMovies} /> }
             {this.state.error && <h1 className='error-message'>Server Error! Please try again</h1>}
           </Route>
           <Route exact path={"/"}>
@@ -55,8 +60,8 @@ class App extends Component {
           <Route path="*">
             <Error />
           </Route>
-          </Switch>
-        </main>
+        </Switch>
+      </main>
     );
   }
 }

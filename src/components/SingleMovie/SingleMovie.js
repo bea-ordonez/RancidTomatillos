@@ -31,7 +31,7 @@ const SingleMovie = ({ singleMovie, showAllMovies, videos }) => {
         <p>{singleMovie.tagline}</p>
         <p>Release Date: {singleMovie.release_date}</p>
         <p>Synopsis: {singleMovie.overview}</p>
-        <p>Rating: {singleMovie.average_rating} 🍅 </p>
+        <p>Rating: {singleMovie.average_rating}/ 10 🍅 </p>
         <p>Genre: {singleMovie.genres}</p>
         <p>Runtime: {singleMovie.runtime} minutes</p>
         {movieKey && (
