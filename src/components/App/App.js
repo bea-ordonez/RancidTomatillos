@@ -12,10 +12,6 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      singleMovie: {},
-      singleMovieTrailer: [],
-      error: "",
-      loading: true
     };
   }
 
@@ -25,40 +21,21 @@ class App extends Component {
     .catch((error) => this.setState( {error: "Something went wrong wrong"}));
   }
 
-  showSingleMovie = (id) => {
-    fetchPromises(`/movies/${id}`)
-    .then((data) => this.setState({singleMovie: data.movie}))
-    .catch((error) => this.setState( {error: "Something went wrong wrong"}))
-
-    fetchPromises(`/movies/${id}/videos`)
-    .then((data) => this.setState({singleMovieTrailer: data.videos, loading: false}))
-    .catch((error) => this.setState( {error: "Something went wrong wrong"}))
-  }
-
-  showAllMovies = () => {
-    this.setState({ singleMovie: {}, singleMovieTrailer: []  });
-  }
 
   render() {
     console.log('error' , this.state.singleMovie.id)
     return (
-      <Switch>
       <main>
-          <Route path={`/${this.state.singleMovie.id}`}>
-            {this.state.loading ?  <h1 className='loading-message'>Loading...</h1> : <SingleMovie singleMovie={this.state.singleMovie} videos={this.state.singleMovieTrailer} showAllMovies={this.showAllMovies} /> }
-            {this.state.error && <h1 className='error-message'>Server Error! Please try again</h1>}
-          </Route>
+          <Route path="/:movieId" render={({match}) => <SingleMovie movieId={parseInt(match.params.movieId)} />} />
           <Route exact path={"/"}>
             {!this.state.movies.length ?  <h1 className='loading-message'>Loading...</h1> : <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1> }
             <MovieContainer movies={this.state.movies} showSingleMovie={this.showSingleMovie} /> 
-            {this.state.error && <h1 className='error-message'>Server Error! Please try again</h1>}
           </Route>
           <Route path="*">
-            {/* <Error /> */}
-            {this.state.singleMovie.id == undefined && <Error />}
+            {/* {this.state.singleMovie.id == undefined && <Error />} */}
+            <Error />
           </Route>
       </main>
-      </Switch>
     );
   }
 }
