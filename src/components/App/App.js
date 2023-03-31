@@ -40,6 +40,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('error' , this.state.singleMovie.id)
     return (
       <main>
         <Switch>
@@ -53,7 +54,8 @@ class App extends Component {
             {this.state.error && <h1 className='error-message'>Server Error! Please try again</h1>}
           </Route>
           <Route path="*">
-            <Error />
+            {/* <Error /> */}
+            {this.state.singleMovie.id !== undefined && <Error />}
           </Route>
         </Switch>
       </main>
