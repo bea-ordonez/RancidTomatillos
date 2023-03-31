@@ -4,7 +4,7 @@ describe("A user should see an error page", () => {
   });
 
   it("User should be redirect to an Error page if the URL is incorrect", () => {
-    cy.get('div[class="error-page"]').should("be.visible");
+    cy.get('h1[class="error-title"]').should("be.visible");
   });
 
   it('User should see the "Page Not Found" message', () => {
@@ -14,6 +14,8 @@ describe("A user should see an error page", () => {
 
   it('User should be redirected back to the home movie page when clicking the go home button', () => {
     cy.contains('Go Home').click()
-    cy.url().should("include", "http://localhost:3000")
+    cy.url().should("contains", "http://localhost:3000")
+    cy.get('.poster-image').should('be.visible')
+    cy.get('.movie-cards').find('.poster-image').should('have.length', '40');
   })
 })
