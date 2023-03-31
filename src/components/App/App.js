@@ -42,8 +42,8 @@ class App extends Component {
   render() {
     console.log('error' , this.state.singleMovie.id)
     return (
+      <Switch>
       <main>
-        <Switch>
           <Route path={`/${this.state.singleMovie.id}`}>
             {this.state.loading ?  <h1 className='loading-message'>Loading...</h1> : <SingleMovie singleMovie={this.state.singleMovie} videos={this.state.singleMovieTrailer} showAllMovies={this.showAllMovies} /> }
             {this.state.error && <h1 className='error-message'>Server Error! Please try again</h1>}
@@ -55,10 +55,10 @@ class App extends Component {
           </Route>
           <Route path="*">
             {/* <Error /> */}
-            {this.state.singleMovie.id !== undefined && <Error />}
+            {this.state.singleMovie.id === undefined && <Error />}
           </Route>
-        </Switch>
       </main>
+      </Switch>
     );
   }
 }
