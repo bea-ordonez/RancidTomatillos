@@ -55,7 +55,7 @@ class App extends Component {
           </Route>
           <Route path="*">
             {/* <Error /> */}
-            {this.state.singleMovie.id === undefined && <Error />}
+            {this.state.singleMovie.id == undefined && <Error />}
           </Route>
       </main>
       </Switch>
