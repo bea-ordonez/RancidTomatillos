@@ -3,12 +3,12 @@ import './Movie.css';
 import PropTypes from "prop-types";
 import { Link }  from "react-router-dom";
 
-const Movie = ({title, poster_path, id, showSingleMovie}) => {
+const Movie = ({title, poster_path, id}) => {
   return (
       
         <Link to={`/${id}`}>
           <div className='single-movie-card'>
-            <img className="poster-image" onClick={() => showSingleMovie(id)} id={id} key={id} src={poster_path} alt={`${title} movie poster`} />
+            <img className="poster-image" id={id} key={id} src={poster_path} alt={`${title} movie poster`} />
           </div>
         </Link>
       
@@ -22,5 +22,4 @@ Movie.propTypes = {
   title: PropTypes.string,
   id: PropTypes.number.isRequired,
   poster_path: PropTypes.string.isRequired,
-  showSingleMovie: PropTypes.func.isRequired
 }

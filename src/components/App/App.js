@@ -4,8 +4,7 @@ import MovieContainer from '../MovieContainer/MovieContainer.js';
 import SingleMovie from '../SingleMovie/SingleMovie.js';
 import Error from '../Error/Error';
 import fetchPromises from '../Api';
-import PropTypes from "prop-types";
-import { Route, Switch, Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -35,6 +34,7 @@ class App extends Component {
             <Error />
           </Route>
         </Switch>
+        {this.state.error && <Error />}
       </main>
     );
   }

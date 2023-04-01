@@ -3,7 +3,7 @@ import './MovieContainer.css';
 import Movie from '../Movie/Movie.js';
 import PropTypes from "prop-types";
 
-const MovieContainer = ({ movies, showSingleMovie }) => {
+const MovieContainer = ({ movies }) => {
   
   const movieCards = movies.map(movie => {
           return(
@@ -11,7 +11,6 @@ const MovieContainer = ({ movies, showSingleMovie }) => {
               poster_path={movie.poster_path}
               id={movie.id}
               title={movie.title}
-              showSingleMovie={showSingleMovie}
               key={movie.id}
               />
             );

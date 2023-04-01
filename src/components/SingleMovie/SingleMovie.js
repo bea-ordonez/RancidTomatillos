@@ -67,6 +67,7 @@ render() {
           )}
         {!this.state.singleMovieVideos.length && <h1>"Sorry no trailer available"</h1>}
       </div>
+      {this.state.error && <Error />}
     </div>
   );
 }
