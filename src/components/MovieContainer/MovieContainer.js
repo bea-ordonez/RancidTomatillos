@@ -4,6 +4,7 @@ import Movie from '../Movie/Movie.js';
 import PropTypes from "prop-types";
 
 const MovieContainer = ({ movies, showSingleMovie }) => {
+  
   const movieCards = movies.map(movie => {
           return(
               <Movie
@@ -22,5 +23,4 @@ export default MovieContainer;
 
 MovieContainer.propTypes = {
   movies: PropTypes.array.isRequired,
-  showSingleMovie: PropTypes.func.isRequired
 }
