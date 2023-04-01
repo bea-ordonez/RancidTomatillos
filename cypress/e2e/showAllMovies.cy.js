@@ -9,6 +9,7 @@ describe('user should see movie image for each movie in the movie container', ()
 
   it('should see movie images', () => {
     cy.get('.poster-image').should('be.visible')
+    cy.get('.movie-cards').find('.poster-image').should('have.length', '40');
   });
 
   it('should see a title of the movie cinema', () => {
