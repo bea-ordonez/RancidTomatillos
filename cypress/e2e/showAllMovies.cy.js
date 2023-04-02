@@ -1,6 +1,7 @@
 describe('user should see movie image for each movie in the movie container', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'movies.json' });
+    cy.visit('http://localhost:3000');
   });
 
   it('should connect to a local site', () => {
@@ -9,7 +10,7 @@ describe('user should see movie image for each movie in the movie container', ()
 
   it('should see movie images', () => {
     cy.get('.poster-image').should('be.visible')
-    cy.get('.movie-cards').find('.poster-image').should('have.length', '40');
+    cy.get('.movie-cards').find('.poster-image').should('have.length', '5');
   });
 
   it('should see a title of the movie cinema', () => {

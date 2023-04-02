@@ -26,11 +26,11 @@ class App extends Component {
       <main>
         {!this.state.movies ? <div className='loading-message'>Loading ... </div> : <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1>}
         <Switch>
-          <Route exact path="/movies/:movieId" render={({match}) => <SingleMovie movieId={(match.params.movieId)} />} />
+         <Route  path="/movies/:movieId" render={({match}) => <SingleMovie movieId={(match.params.movieId)} />} />
           <Route exact path={"/"}>
             <MovieContainer movies={this.state.movies} /> 
           </Route>
-          <Route path="/:error">
+          <Route path="*">
             <Error />
           </Route>
         </Switch>
@@ -41,3 +41,12 @@ class App extends Component {
 }
 
 export default App;
+
+
+// const findMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.movieId))
+//           console.log(findMovie)
+//           if(findMovie) {
+//             return <SingleMovie movieId={(match.params.movieId)} />}
+//             else {
+//               return <Error />
+//             }
