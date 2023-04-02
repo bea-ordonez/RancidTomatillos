@@ -1,45 +1,43 @@
 .single-movie > img {
-    width: 100vw;
-    height: 70vh;
-    /* border-radius: 1.5em; */
-    margin: 1.5vh;
-    box-shadow: 1px 1px 10px 5px rgba(246, 242, 242, 0.423);
+  width: 100vw;
+  height: 70vh;
+  /* border-radius: 1.5em; */
+  margin: 1.5vh;
+  box-shadow: 1px 1px 10px 5px rgba(246, 242, 242, 0.423);
 }
 
 .single-movie {
-    background-color: black;
-    background-size: cover;
-    font-size: 2vh;
-    color: white;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    height: 95vh;
-    text-shadow: #000000 1px 0 10px;
+  background-color: black;
+  background-size: cover;
+  font-size: 2vh;
+  color: white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  height: 95vh;
+  text-shadow: #000000 1px 0 10px;
 }
 
 .movie-details {
-    text-align: center;
+  text-align: center;
 }
 
 .single-movie-button {
-    margin-left: 30px;
-    margin-top: 30px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    cursor: pointer;
-    background-color: white;
-    border-radius: 8px;
-    width: 125px;
-    height: 50px;
+  margin-left: 30px;
+  margin-top: 30px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 8px;
+  width: 125px;
+  height: 50px;
 }
 
 .single-movie-button:hover {
-        scale: 1.1;
-        background-color: lightgray;
-        border-radius: 8px;
-      
+  scale: 1.1;
+  background-color: lightgray;
+  border-radius: 8px;
 }
 
 .single-header-title {
-    cursor: pointer;
-    text-align: center;
+  cursor: pointer;
+  text-align: center;
 }
-

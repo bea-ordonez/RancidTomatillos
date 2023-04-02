@@ -1,34 +1,43 @@
-import React, { Component } from 'react';
-import './App.css';
-import MovieContainer from '../MovieContainer/MovieContainer.js';
-import SingleMovie from '../SingleMovie/SingleMovie.js';
-import Error from '../Error/Error';
-import fetchPromises from '../Api';
-import { Route, Switch } from 'react-router-dom';
+import React, { Component } from "react";
+import "./App.css";
+import MovieContainer from "../MovieContainer/MovieContainer.js";
+import SingleMovie from "../SingleMovie/SingleMovie.js";
+import Error from "../Error/Error";
+import fetchPromises from "../Api";
+import { Route, Switch } from "react-router-dom";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movies: [],
-      error: false
+      error: false,
     };
   }
 
   componentDidMount = () => {
     fetchPromises("movies")
-    .then((data) =>  this.setState({movies: data.movies}))
-    .catch((error) => this.setState( {error: true}));
-  }
+      .then((data) => this.setState({ movies: data.movies }))
+      .catch((error) => this.setState({ error: true }));
+  };
 
   render() {
     return (
       <main>
-        {!this.state.movies ? <div className='loading-message'>Loading ... </div> : <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1>}
+        {!this.state.movies ? (
+          <div className="loading-message">Loading ... </div>
+        ) : (
+          <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1>
+        )}
         <Switch>
-         <Route  path="/movies/:movieId" render={({match}) => <SingleMovie movieId={(match.params.movieId)} />} />
+          <Route
+            path="/movies/:movieId"
+            render={({ match }) => (
+              <SingleMovie movieId={match.params.movieId} />
+            )}
+          />
           <Route exact path={"/"}>
-            <MovieContainer movies={this.state.movies} /> 
+            <MovieContainer movies={this.state.movies} />
           </Route>
           <Route path="*">
             <Error />
@@ -41,7 +50,6 @@ class App extends Component {
 }
 
 export default App;
-
 
 // const findMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.movieId))
 //           console.log(findMovie)
