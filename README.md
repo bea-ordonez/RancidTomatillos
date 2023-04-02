@@ -34,10 +34,15 @@
 - Open project in code editor
 - Run npm start to host in browser
 
+## Project Spec 
+The details of this project are outlined [here.](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
+
 Contributors
 
 - [Bea Ordonez](https://github.com/bea-ordonez)
 - [Travis Parks](https://github.com/LeftyLincoln)
+
+
 
 
 
