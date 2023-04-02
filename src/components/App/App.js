@@ -24,13 +24,13 @@ class App extends Component {
   render() {
     return (
       <main>
-          {!this.state.movies.length ?  <h1 className='loading-message'>Loading...</h1> : <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1> }
+        {!this.state.movies ? <div className='loading-message'>Loading ... </div> : <h1 className="header-title">Bea &amp; Travis's Movie Cinema</h1>}
         <Switch>
-          <Route path="/:movieId" render={({match}) => <SingleMovie movieId={(match.params.movieId)} />} />
+          <Route exact path="/movies/:movieId" render={({match}) => <SingleMovie movieId={(match.params.movieId)} />} />
           <Route exact path={"/"}>
             <MovieContainer movies={this.state.movies} /> 
           </Route>
-          <Route path="*">
+          <Route path="/:error">
             <Error />
           </Route>
         </Switch>
