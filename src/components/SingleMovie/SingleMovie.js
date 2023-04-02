@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "./SingleMovie.css";
 import PropTypes from "prop-types";
-import {Link}  from "react-router-dom";
+import { NavLink }  from "react-router-dom";
 // import { render } from "@testing-library/react";
 import fetchPromises from '../Api';
 import Error from "../Error/Error";
@@ -45,9 +45,9 @@ render() {
   return (
     <div
     className="single-movie" style={{ backgroundImage: `url("${this.state.singleMovieSelected.backdrop_path}")` }} >
-      <Link to="/">
+      <NavLink to="/">
       <button className="single-movie-button">Back To Home</button>
-      </Link>
+      </NavLink>
       <div className="movie-details">
         <h1>Title: {this.state.singleMovieSelected.title}</h1>
         <p>{this.state.singleMovieSelected.tagline}</p>
@@ -67,6 +67,7 @@ render() {
           )}
         {!this.state.singleMovieVideos.length && <h1>"Sorry no trailer available"</h1>}
       </div>
+      {this.state.error && <Error />}
     </div>
   );
 }
