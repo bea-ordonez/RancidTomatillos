@@ -1,15 +1,15 @@
 .go-home-button {
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    cursor: pointer;
-    background-color: white;
-    border-radius: 8px;
-    width: 100px;
-    height: 60px;
-    text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 8px;
+  width: 100px;
+  height: 60px;
+  text-align: center;
 }
 
 .error-title {
- text-align: center;
+  text-align: center;
 }
 
 .error-page {
