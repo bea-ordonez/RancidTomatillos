@@ -13,11 +13,7 @@
 
 ## Preview of Application
 
-![Rancid Tomatillo](https://media.giphy.com/media/e7OghKN8JhU6r914Wq/giphy-downsized-large.gif)
-
-
-
-
+![Rancid Tomatillo](https://user-images.githubusercontent.com/116752855/229393324-1ac47e49-179c-4c13-a088-5508893e9fbb.gif)
 
 ## Technologies
 
