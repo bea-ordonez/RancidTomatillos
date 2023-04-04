@@ -50,11 +50,3 @@ class App extends Component {
 }
 
 export default App;
-
-// const findMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.movieId))
-//           console.log(findMovie)
-//           if(findMovie) {
-//             return <SingleMovie movieId={(match.params.movieId)} />}
-//             else {
-//               return <Error />
-//             }
